@@ -7,7 +7,7 @@
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta name="description" content="A new Flutter project.">
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no, minimal-ui">
   <meta name="theme-color" content="#1a1f27">
   <!-- iOS meta tags & icons -->
   <meta name="mobile-web-app-capable" content="yes">
@@ -39,81 +39,170 @@
     });
   </script>
 
+  <!-- Styling for loading indicator -->
   <style>
-    @import url(https://fonts.googleapis.com/css?family=Quattrocento+Sans);
-
-    .loading {
-      position: flex;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: #000;
-      z-index: 9999;
+    @font-face {
+      font-family: 'Ketupat';
+      src: url('fonts/Ketupat Ramadhan.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
     }
 
-    .loading-text {
+
+    body {
+      background: #1a1f27;
+    }
+
+    #load {
       position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      margin: auto;
-      text-align: center;
-      width: 100%;
-      height: 100px;
-      line-height: 100px;
+      width: 600px;
+      height: 36px;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: visible;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      cursor: default;
     }
 
-    .loading-text span {
-      display: inline-block;
-      margin: 0 5px;
-      color: #fff;
-      font-family: 'Quattrocento Sans', sans-serif;
+    #load div {
+      position: relative;
+      width: 30px;
+      height: 54px;
+      opacity: 0;
+      font-family: "Ketupat", sans-serif;
+      animation: blurEffect 2s linear infinite;
+      -o-animation: blurEffect 2s linear infinite;
+      -moz-animation: blurEffect 2s linear infinite;
+      -webkit-animation: blurEffect 2s linear infinite;
+      color: #f3cf63;
     }
 
-    .loading-text span:nth-child(1) {
-      filter: blur(0px);
-      animation: blur-text 1.5s 0s infinite linear alternate;
+    #load div:nth-child(2) {
+      animation-delay: 0.2s;
+      -o-animation-delay: 0.2s;
+      -moz-animation-delay: 0.2s;
+      -webkit-animation-delay: 0.2s;
     }
 
-    .loading-text span:nth-child(2) {
-      filter: blur(0px);
-      animation: blur-text 1.5s 0.2s infinite linear alternate;
+    /* #load div:nth-child(3) {
+      animation-delay: 0.4s;
+      -o-animation-delay: 0.4s;
+      -webkit-animation-delay: 0.4s;
+      -webkit-animation-delay: 0.4s;
     }
 
-    .loading-text span:nth-child(3) {
-      filter: blur(0px);
-      animation: blur-text 1.5s 0.4s infinite linear alternate;
+    #load div:nth-child(4) {
+      animation-delay: 0.6s;
+      -o-animation-delay: 0.6s;
+      -moz-animation-delay: 0.6s;
+      -webkit-animation-delay: 0.6s;
     }
 
-    .loading-text span:nth-child(4) {
-      filter: blur(0px);
-      animation: blur-text 1.5s 0.6s infinite linear alternate;
+    #load div:nth-child(5) {
+      animation-delay: 0.8s;
+      -o-animation-delay: 0.8s;
+      -moz-animation-delay: 0.8s;
+      -webkit-animation-delay: 0.8s;
     }
 
-    .loading-text span:nth-child(5) {
-      filter: blur(0px);
-      animation: blur-text 1.5s 0.8s infinite linear alternate;
+    #load div:nth-child(6) {
+      animation-delay: 1s;
+      -o-animation-delay: 1s;
+      -moz-animation-delay: 1s;
+      -webkit-animation-delay: 1s;
     }
 
-    .loading-text span:nth-child(6) {
-      filter: blur(0px);
-      animation: blur-text 1.5s 1s infinite linear alternate;
-    }
+    #load div:nth-child(7) {
+      animation-delay: 1.2s;
+      -o-animation-delay: 1.2s;
+      -moz-animation-delay: 1.2s;
+      -webkit-animation-delay: 1.2s;
+    } */
 
-    .loading-text span:nth-child(7) {
-      filter: blur(0px);
-      animation: blur-text 1.5s 1.2s infinite linear alternate;
-    }
-
-    @keyframes blur-text {
+    @keyframes blurEffect {
       0% {
+        opacity: 0;
+        filter: blur(5px);
+        transform: scale(0.8);
+      }
+
+      50% {
+        opacity: 1;
         filter: blur(0px);
+        transform: scale(1.2);
       }
 
       100% {
-        filter: blur(4px);
+        opacity: 0;
+        filter: blur(5px);
+        transform: scale(0.8);
+      }
+    }
+
+    @-moz-keyframes blurEffect {
+      0% {
+        opacity: 0;
+        filter: blur(5px);
+        transform: scale(0.8);
+      }
+
+      50% {
+        opacity: 1;
+        filter: blur(0px);
+        transform: scale(1.2);
+      }
+
+      100% {
+        opacity: 0;
+        filter: blur(5px);
+        transform: scale(0.8);
+      }
+    }
+
+    @-webkit-keyframes blurEffect {
+      0% {
+        opacity: 0;
+        filter: blur(5px);
+        transform: scale(0.8);
+      }
+
+      50% {
+        opacity: 1;
+        filter: blur(0px);
+        transform: scale(1.2);
+      }
+
+      100% {
+        opacity: 0;
+        filter: blur(5px);
+        transform: scale(0.8);
+      }
+    }
+
+    @-o-keyframes blurEffect {
+      0% {
+        opacity: 0;
+        filter: blur(5px);
+        transform: scale(0.8);
+      }
+
+      50% {
+        opacity: 1;
+        filter: blur(0px);
+        transform: scale(1.2);
+      }
+
+      100% {
+        opacity: 0;
+        filter: blur(5px);
+        transform: scale(0.8);
       }
     }
   </style>
@@ -123,28 +212,20 @@
 
 <body>
   <!-- Loading Indicator -->
-  <div id="loading_container" class="loading">
-    <div class="loading-text">
-      <span class="loading-text-words">L</span>
-      <span class="loading-text-words">O</span>
-      <span class="loading-text-words">A</span>
-      <span class="loading-text-words">D</span>
-      <span class="loading-text-words">I</span>
-      <span class="loading-text-words">N</span>
-      <span class="loading-text-words">G</span>
-    </div>
+  <div id="load">
+    <div>Zawia</div>
   </div>
-  <!-- This script installs service_worker.js to provide PWA functionality to
-         application. For more information, see:
-         https://developers.google.com/web/fundamentals/primers/service-workers -->
+
   <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('flutter-first-frame', function () {
-        navigator.serviceWorker.register('flutter_service_worker.js?v=3250308346');
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("flutter-first-frame", function () {
+        navigator.serviceWorker.register("flutter_service_worker.js");
       });
     }
   </script>
+
   <script src="flutter_bootstrap.js" async></script>
+
   <script>
     window.onload = function () {
       setTimeout(function () {
@@ -152,8 +233,8 @@
         if (loadingIndicator) {
           loadingIndicator.remove();
         }
-      }, 5000)
-    }
+      }, 9000);
+    };
   </script>
 
 </body>
