@@ -1,11 +1,11 @@
 {
-    "name": "zawia",
-    "short_name": "zawia",
+    "name": "Zawia",
+    "short_name": "Zawia",
     "start_url": ".",
-    "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "display": "fullscreen",
+    "background_color": "#1a1f27",
+    "theme_color": "#1a1f27",
+    "description": "World class clothing brand",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
